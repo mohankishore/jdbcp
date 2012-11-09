@@ -16,36 +16,43 @@ error monitoring
 
 ## Failover urls
 
-## clustering
+## Clustering
 with out of box jgroups and zookeeper support
 
-## synchronized failover
+## Synchronized failover
 quorum based
 
-## connection validation
+## Connection validation
 timer
 on borrow
 on return
 
-## abandoned connections
+## Abandoned connections
+checked out and never returned
 with stack trace
 
-## max-use limits
+## Max-use limits
+close physical connections even if they are still valid
 to address memory leaks in drivers
 
-## lock/suspend and unlock/resume a pool
+## Lock/suspend and unlock/resume
+manual overrides
+probably best to route the automated ones also through the same call path
 
-## prevent connection storms
+## Connection storms
 especially when unlocking/resuming a pool
+support warm-up duration, or create-delay (can also be applied if config changed dynamically)
+oracle UCP supports async application of configuration changes - eventually consistent..
 
-## trace sql statements
+## Trace sql statements
 with additional config for parameters
 
-## track slow running queries?
+## Slow running queries?
 
-## support attaching arbitrary application object to the connection?
+## Application attachments?
+support attaching arbitrary application object to the connection?
 
-## expose underlying connection
+## Underlying connection
 via standard unwrap() method
 any benefit in having a proxy that implements all the interfaces from the base object?
 
