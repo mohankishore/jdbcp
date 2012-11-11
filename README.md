@@ -9,40 +9,40 @@ The following sections list out some interesting "add-on" features and how they 
 
 ## Extensible design
 * event based
-** pool.start
-** pool.resume
-** pool.error
-** pool.suspend
-** pool.stop
-** object.create
-** object.borrow
-** object.error
-** object.invalid?
-** object.return
-** object.destroy
+    * pool.start
+    * pool.resume
+    * pool.error
+    * pool.suspend
+    * pool.stop
+    * object.create
+    * object.borrow
+    * object.error
+    * object.invalid?
+    * object.return
+    * object.destroy
 * bone-cp allows few additional ones:
-** create-fail
-** before-execute
-** execute-timeout
-** after-execute
-** database-potentially-down
+    * create-fail
+    * before-execute
+    * execute-timeout
+    * after-execute
+    * database-potentially-down
 * We should allow plugins to fire their own events. What does the payload look like? Event handling method signature?
 
 ## Failover
 * Failover can be broken into different phases: configure (alternatives), detect, decide (local/cluster), execute (local/cluster)
 * Configuration:
-** composite pools - pointing to other pools?
+    * composite pools - pointing to other pools?
 * Detection:
-** timer based database health check: can be plugged in via pool-start/stop listeners, which marks the pool as "potentially down"?
-** error monitoring: can be plugged in as error-listener?
+    * timer based database health check: can be plugged in via pool-start/stop listeners, which marks the pool as "potentially down"?
+    * error monitoring: can be plugged in as error-listener?
 * Decide
-** local JVM
-** cluster-wide quorum based synchronized failover: listen to potentially-down events, and call "suspend()" method -OR- fire an "actually down" event.
-** automated failback? If yes, will need to keep testing the database to detect when its back up.
-** keep checking if it is "suspended", but stop checking if it is "stopped"?
-** fixed rate of checking, or gradually slow down the frequency with which we are checking?
+    * local JVM
+    * cluster-wide quorum based synchronized failover: listen to potentially-down events, and call "suspend()" method -OR- fire an "actually down" event.
+    * automated failback? If yes, will need to keep testing the database to detect when its back up.
+    * keep checking if it is "suspended", but stop checking if it is "stopped"?
+    * fixed rate of checking, or gradually slow down the frequency with which we are checking?
 * Execute
-** ??
+    * ??
 
 ## Clustering
 * with out of box support for? jgroups? zookeeper? JMS?
