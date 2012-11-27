@@ -108,3 +108,10 @@ The following sections list out some interesting "add-on" features and how they 
 ## read-write separation
 * just define different pools and use the right one
 * will need composite-pool that supports load-balance (simple round-robin? extensible?)
+
+
+## References (not a comprehensive list)
+* http://people.apache.org/~fhanik/jdbc-pool/jdbc-pool.html
+* http://docs.oracle.com/cd/E17904_01/web.1111/e13737/jdbc_multidatasources.htm
+* https://github.com/ttddyy/datasource-proxy#readme
+* http://static.springsource.org/spring/docs/2.0.x/api/org/springframework/jdbc/datasource/lookup/AbstractRoutingDataSource.html
